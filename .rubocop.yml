@@ -1,0 +1,73 @@
+require: rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.4
+  DisplayCopNames: true
+
+  Include:
+    - '**/Gemfile'
+    - '**/Rakefile'
+    - '**/config.ru'
+    - 'lib/tasks/**/*'
+
+  Exclude:
+    - 'bin/**/*'
+    - 'config/**/*' # TODO: Remove me
+    - 'db/**/*'
+    - 'vendor/**/*'
+
+Rails:
+  Enabled: true
+
+Lint/HandleExceptions:
+  Exclude:
+    - 'bin/*'
+
+Lint/EndAlignment:
+  EnforcedStyleAlignWith: variable
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/*'
+  Max: 10
+
+Metrics/AbcSize:
+  Max: 25
+
+Metrics/ClassLength:
+  Max: 100
+
+Metrics/LineLength:
+  Max: 100
+
+Style/AlignHash:
+  EnforcedLastArgumentHashStyle: ignore_implicit
+  EnforcedHashRocketStyle: table
+
+Style/Documentation:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false
+
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/i18n_spec.rb'
+
+RSpec/MultipleExpectations:
+  Max: 10
+
+RSpec/ExampleLength:
+  Max: 10
