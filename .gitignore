@@ -22,3 +22,6 @@
 
 #c9 env
 .c9
+
+#dotenv
+.env
