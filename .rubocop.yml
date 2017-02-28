@@ -71,3 +71,11 @@ RSpec/MultipleExpectations:
 
 RSpec/ExampleLength:
   Max: 10
+  
+Metrics/ModuleLength:
+  Exclude:
+    - "**/*_spec.rb"
+
+Metrics/BlockLength:
+  Exclude:
+    - "**/*_spec.rb"
