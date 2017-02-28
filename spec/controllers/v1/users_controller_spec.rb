@@ -53,6 +53,15 @@ RSpec.describe V1::UsersController, type: :request do
         expect(response.status).to eq(400)
         expect(json[:error]).not_to be_blank
       end
+
+      it 'returns error for submiting existing email address' do
+        create(:user, email: 'john@doe.com')
+
+        post '/users', params: valid_new_user_params, headers: valid_headers
+
+        expect(response.status).to eq(422)
+        expect(json[:error]).not_to be_blank
+      end
     end
   end
 end
