@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'aasm', '~> 4.11.1'
 gem 'bcrypt', '~> 3.1.7'
 gem 'knock', '~> 2.1.1'
 gem 'pg', '~> 0.18'
