@@ -1,0 +1,6 @@
+deployment:
+  production:
+    branch: master
+    commands:
+      - git push git@heroku.com:mentoring-platform-api.git $CIRCLE_SHA1:master -f
+      - heroku run rake db:migrate --app mentoring-platform-api
