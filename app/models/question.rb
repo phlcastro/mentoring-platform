@@ -8,6 +8,8 @@ class Question < ApplicationRecord
 
   validates :from_user_id, :to_user_id, :description, presence: true
 
+  scope :open_status, -> { where.not status: 'closed' }
+
   aasm(:status) do
     state :newly, initial: true
     state :discussing, :closed
