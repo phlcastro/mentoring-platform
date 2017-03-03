@@ -17,11 +17,13 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'ffaker'
+  gem 'guard-rspec'
   gem 'rspec-json_expectations'
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'rubocop-rspec'
   gem 'shoulda-matchers'
+  gem 'spring-commands-rspec'
 end
 
 group :development do
