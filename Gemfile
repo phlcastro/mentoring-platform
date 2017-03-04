@@ -10,6 +10,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'knock', '~> 2.1.1'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
+gem 'rack-cors', '~> 0.4.1'
 gem 'rails', '~> 5.0.1'
 
 group :development, :test do
