@@ -8,6 +8,10 @@ class V1::UsersController < ApplicationController
     render json: { jwt: knock_token.token, role: user.role }, status: :created
   end
 
+  def list_mentors
+    render json: { mentors: User.all.pluck(:id, :first_name, :last_name) }
+  end
+
   private
 
   def user_params
