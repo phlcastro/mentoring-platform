@@ -9,7 +9,14 @@ class V1::UsersController < ApplicationController
   end
 
   def list_mentors
-    render json: { mentors: User.all.pluck(:id, :first_name, :last_name) }
+    render json: { mentors: current_user.mentors.pluck(:id, :first_name, :last_name) }
+  end
+
+  def add_mentor
+    mentor = User.find(params[:mentor_id])
+    current_user.mentors << mentor
+
+    head :created
   end
 
   private

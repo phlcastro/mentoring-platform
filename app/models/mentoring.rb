@@ -1,0 +1,2 @@
+class Mentoring < ApplicationRecord
+end
