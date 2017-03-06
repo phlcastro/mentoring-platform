@@ -9,7 +9,9 @@ class V1::UsersController < ApplicationController
   end
 
   def list_mentors
-    render json: { mentors: current_user.mentors.pluck(:id, :first_name, :last_name) }
+    result = ActiveModelSerializers::SerializableResource
+             .new(current_user.mentors, each_serializer: MentorsListSerializer).as_json
+    render json: { mentors: result }
   end
 
   def add_mentor
