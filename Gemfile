@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'aasm', '~> 4.11.1'
+gem 'active_model_serializers', '~> 0.10.4'
 gem 'bcrypt', '~> 3.1.7'
 gem 'knock', '~> 2.1.1'
 gem 'pg', '~> 0.18'
