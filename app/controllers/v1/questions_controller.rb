@@ -21,7 +21,7 @@ class V1::QuestionsController < ApplicationController
   end
 
   def show
-    render json: current_user.asked_questions.find(params[:id]), root: :question
+    render json: current_user.asked_questions.find(params[:id]), root: :question, adapter: :json
   end
 
   def update
