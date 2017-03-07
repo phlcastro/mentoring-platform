@@ -2,11 +2,14 @@ class V1::QuestionsController < ApplicationController
   before_action :authenticate_user
 
   def index
-    result = if params[:filter_status].blank?
+    questions = if params[:filter_status].blank?
       current_user.asked_questions.open_status
     else
       current_user.asked_questions.where(status: params[:filter_status])
     end
+
+    result = ActiveModelSerializers::SerializableResource
+             .new(questions, each_serializer: QuestionsListSerializer).as_json
 
     render json: { questions: result }
   end
