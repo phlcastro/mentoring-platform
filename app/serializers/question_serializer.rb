@@ -1,5 +1,5 @@
 class QuestionSerializer < ActiveModel::Serializer
-  attributes :id, :from_user, :to_user, :status, :answers, :created_at
+  attributes :id, :from_user, :to_user, :status, :description, :answers, :created_at
 
   def from_user
     simplified_user(object.from_user)
