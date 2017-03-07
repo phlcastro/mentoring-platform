@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     get '/users/mentors', to: 'users#list_mentors'
     post '/users/mentors', to: 'users#add_mentor'
+    delete '/users/mentors', to: 'users#remove_mentor'
 
     resources :questions, only: [:create, :index] do
       resources :answers, only: [:create]
