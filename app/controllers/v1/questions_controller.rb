@@ -20,6 +20,10 @@ class V1::QuestionsController < ApplicationController
     head :created
   end
 
+  def show
+    render json: current_user.asked_questions.find(params[:id]), root: :question
+  end
+
   def update
     current_user.asked_questions.find(params[:id]).update_attributes!(question_params)
 
