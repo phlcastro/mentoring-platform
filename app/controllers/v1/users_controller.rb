@@ -9,8 +9,9 @@ class V1::UsersController < ApplicationController
   end
 
   def list_mentors
+    mentors_list = params[:available] ? User.mentor.where.not(id: current_user.mentors) : current_user.mentors
     result = ActiveModelSerializers::SerializableResource
-             .new(current_user.mentors, each_serializer: MentorsListSerializer).as_json
+             .new(mentors_list, each_serializer: MentorsListSerializer).as_json
     render json: { mentors: result }
   end
 
