@@ -1,5 +1,5 @@
 class QuestionsListSerializer < ActiveModel::Serializer
-  attributes :id, :created_at, :description, :mentor
+  attributes :id, :created_at, :description, :mentor, :status
 
   def mentor
     {
