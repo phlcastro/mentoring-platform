@@ -1,11 +1,19 @@
 class QuestionsListSerializer < ActiveModel::Serializer
-  attributes :id, :created_at, :description, :mentor, :status
+  attributes :id, :created_at, :description, :from_user, :to_user, :status
 
-  def mentor
+  def to_user
     {
       id: object.to_user.id,
       first_name: object.to_user.first_name,
       last_name: object.to_user.last_name
+    }
+  end
+
+  def from_user
+    {
+      id: object.from_user.id,
+      first_name: object.from_user.first_name,
+      last_name: object.from_user.last_name
     }
   end
 
