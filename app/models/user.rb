@@ -16,4 +16,6 @@ class User < ApplicationRecord
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
 
   default_scope { order(:first_name, :last_name) }
+
+  scope :mentor, -> { where(role: 'mentor') }
 end
