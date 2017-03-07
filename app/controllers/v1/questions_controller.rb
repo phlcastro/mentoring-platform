@@ -3,9 +3,9 @@ class V1::QuestionsController < ApplicationController
 
   def index
     questions = if params[:filter_status].blank?
-      current_user.asked_questions.open_status
+      Question.all_questions(current_user.id).open_status
     else
-      current_user.asked_questions.where(status: params[:filter_status])
+      Question.all_questions(current_user.id).where(status: params[:filter_status])
     end
 
     result = ActiveModelSerializers::SerializableResource

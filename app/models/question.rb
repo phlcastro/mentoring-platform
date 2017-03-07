@@ -22,4 +22,8 @@ class Question < ApplicationRecord
       transitions from: :discussing, to: :closed
     end
   end
+
+  def self.all_questions(user_id)
+    Question.all.where(['from_user_id = ? OR to_user_id = ?', user_id, user_id])
+  end
 end
