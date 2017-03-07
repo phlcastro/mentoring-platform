@@ -1,5 +1,5 @@
 class QuestionSerializer < ActiveModel::Serializer
-  attributes :id, :from_user, :to_user, :status, :answers
+  attributes :id, :from_user, :to_user, :status, :answers, :created_at
 
   def from_user
     simplified_user(object.from_user)
@@ -18,6 +18,10 @@ class QuestionSerializer < ActiveModel::Serializer
         created_at: row.created_at.strftime('%d/%m/%Y')
       }
     end
+  end
+
+  def created_at
+    object.created_at.strftime('%d/%m/%Y')
   end
 
   private
