@@ -20,6 +20,12 @@ class V1::QuestionsController < ApplicationController
     head :created
   end
 
+  def update
+    current_user.asked_questions.find(params[:id]).update_attributes!(question_params)
+
+    head :ok
+  end
+
   private
 
   def question_params

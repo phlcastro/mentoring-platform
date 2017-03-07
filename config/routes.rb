@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     post '/users/mentors', to: 'users#add_mentor'
     delete '/users/mentors', to: 'users#remove_mentor'
 
-    resources :questions, only: [:create, :index] do
+    resources :questions, only: [:create, :index, :update] do
       resources :answers, only: [:create]
     end
   end
